@@ -30,7 +30,14 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Text('Flutter Project for Chordy'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Chordy Home Page"),
+        ),
+        body: const Center(
+          child: Text("Hello, Chordy!"),
+        ),
+      ),
     );
   }
 }
