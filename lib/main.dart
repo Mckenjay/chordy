@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chordy',
       theme: ThemeData(
         // This is the theme of your application.
@@ -28,11 +29,35 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 71, 58, 183)),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Chordy Home Page"),
+          actions: [
+            IconButton(
+              tooltip: 'Search',
+              icon: const Icon(Icons.search),
+              onPressed: () {},
+            ),
+            PopupMenuButton<Text>(
+              tooltip: 'More options',
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem(
+                    value: const Text('Settings'),
+                    child: const Text('Settings'),
+                    onTap: () {},
+                  ),
+                  PopupMenuItem(
+                    value: const Text('About'),
+                    child: const Text('About Chordy'),
+                    onTap: () {},
+                  ),
+                ];
+              },
+            ),
+          ],
+          title: const Text("Chordy"),
         ),
         body: const Center(
           child: Text("Hello, Chordy!"),
