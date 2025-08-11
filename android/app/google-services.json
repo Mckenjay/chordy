@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "194052404619",
+    "project_id": "chordy-5a452",
+    "storage_bucket": "chordy-5a452.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194052404619:android:cc236a306d5fc8f67c2b8e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_chords"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZZD3WZ24_DMvxAp-NWbeyW7ZOlXEgDbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
