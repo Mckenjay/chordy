@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'abouts.dart';
 
 class AppBarActions extends StatelessWidget {
   const AppBarActions({super.key});
@@ -24,7 +25,9 @@ class AppBarActions extends StatelessWidget {
               PopupMenuItem(
                 value: const Text('About'),
                 child: const Text('About Chordy'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Abouts()));
+                },
               ),
             ];
           },

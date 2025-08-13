@@ -31,9 +31,19 @@ class MainApp extends StatelessWidget {
           ],
           title: const Text("Chordy"),
         ),
-        body: const Center(
-          child: Text("Hello, Chordy!"),
-        ),
+        body: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Card(
+              child: ListTile(
+                leading: FlutterLogo(size: 56.0),
+                title: Text('Two-line ListTile'),
+                subtitle: Text('Here is a second line'),
+                hoverColor: Colors.amberAccent,
+              ),
+            ),
+          ],
+        )
       ),
     );
   }
