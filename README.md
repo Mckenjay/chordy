@@ -1,5 +1,5 @@
-# flutter_chords
+# Chordy
 
-A Flutter project for lyrics and chords used for our church.
+A Flutter project for lyrics and chords.
 
 ## Additional documentation coming...
