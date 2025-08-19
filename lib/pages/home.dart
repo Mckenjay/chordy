@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chords/pages/lyrics_chords.dart';
+import 'package:chordy/pages/lyrics_chords.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_chords/appbar_actions.dart';
+import 'package:chordy/appbar_actions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

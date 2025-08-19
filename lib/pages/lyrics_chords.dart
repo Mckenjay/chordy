@@ -1,3 +1,4 @@
+import 'package:custom_flutter_chord/custom_flutter_chord.dart';
 import 'package:flutter/material.dart';
 
 class LyricsChordsPage extends StatefulWidget {
@@ -33,7 +34,26 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
           ),
         ],
       ),
-      body: Center(child: Text('Lyrics'),),
+      body: ListView(
+        children: [
+          LyricsRenderer(
+            lyrics: '''
+              [C]Give me Freedom, [F]Give me fire
+              [Am] Give me reason, [G]Take me higher
+              ''',
+            textStyle: TextStyle(fontSize: 18, color: Colors.black),
+            chordStyle: TextStyle(fontSize: 20, color: Colors.green),
+            widgetPadding: 100,
+            onTapChord: (String chord) {},
+            transposeIncrement: 0,
+            scrollSpeed: 0,
+            showChord: true,
+            showText: true,
+            fixedChordSpace: 15,
+            underlineChordSyllables: false,
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Edit',
         child: Icon(Icons.edit, color: Colors.blue),
