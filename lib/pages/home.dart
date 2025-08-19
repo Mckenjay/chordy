@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chords/pages/lyrics_chords.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_chords/appbar_actions.dart';
 
@@ -40,11 +41,18 @@ class _HomePageState extends State<HomePage> {
                 hoverColor: Colors.grey[300],
                 shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
                 trailing: Icon(Icons.chevron_right, color: Colors.blue,),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => LyricsChordsPage()));
+                },
               ),
             );
           },
-        )
+        ),
+        floatingActionButton: FloatingActionButton(
+          tooltip: 'Add Song',
+          child: Icon(Icons.add_outlined, color: Colors.blue),
+          onPressed: () {}
+        ),
       ),
     );
   }
