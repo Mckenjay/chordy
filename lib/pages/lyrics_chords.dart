@@ -1,4 +1,5 @@
 import 'package:chordy/models/song_model.dart';
+import 'package:chordy/services/song_service.dart';
 import 'package:custom_flutter_chord/custom_flutter_chord.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class LyricsChordsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SongService songService = SongService();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -24,7 +26,15 @@ class LyricsChordsPage extends StatelessWidget {
                 PopupMenuItem(
                   value: const Text('Delete'),
                   child: const Text('Delete'),
-                  onTap: () {},
+                  onTap: () async {
+                    await songService.deleteSong(songData.id.toString());
+
+                    if (!context.mounted) return;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Song deleted successfully!')),
+                    );
+                    Navigator.pop(context);
+                  },
                 ),
               ];
             },

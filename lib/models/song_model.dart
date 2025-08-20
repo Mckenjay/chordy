@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SongModel {
-  final String id;
+  final String? id;
   final String title;
   final String artist;
   final String lyrics;
@@ -9,7 +9,7 @@ class SongModel {
   final DateTime? updatedAt;
 
   SongModel({
-    required this.id,
+    this.id,
     required this.title,
     required this.artist,
     required this.lyrics,
