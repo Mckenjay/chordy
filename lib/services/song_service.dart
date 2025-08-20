@@ -4,6 +4,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class SongService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
+  Stream<List<SongModel>> getSongsStream() {
+    return _db
+      .collection('Songs')
+      .snapshots()
+      .map((snapshot) => snapshot.docs
+            .map((doc) => SongModel.fromDocumentSnapshot(doc))
+            .toList());
+  }
+
   Future<List<SongModel>> getSongs() async {
     QuerySnapshot<Map<String, dynamic>> snapshot = await _db.collection('Songs').get();
     return snapshot.docs

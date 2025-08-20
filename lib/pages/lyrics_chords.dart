@@ -1,14 +1,11 @@
+import 'package:chordy/models/song_model.dart';
 import 'package:custom_flutter_chord/custom_flutter_chord.dart';
 import 'package:flutter/material.dart';
 
-class LyricsChordsPage extends StatefulWidget {
-  const LyricsChordsPage({super.key});
+class LyricsChordsPage extends StatelessWidget {
+  final SongModel songData;
+  const LyricsChordsPage({super.key, required this.songData});
 
-  @override
-  State<LyricsChordsPage> createState() => _LyricsChordsPageState();
-}
-
-class _LyricsChordsPageState extends State<LyricsChordsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +16,7 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
             Navigator.pop(context);
           },
         ),
-        title: Text('Song Title'),
+        title: Text(songData.title),
         actions: [
           PopupMenuButton(
             itemBuilder:(BuildContext context) {
@@ -37,10 +34,7 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
       body: ListView(
         children: [
           LyricsRenderer(
-            lyrics: '''
-              [C]Give me Freedom, [F]Give me fire
-              [Am] Give me reason, [G]Take me higher
-              ''',
+            lyrics: songData.lyrics,
             textStyle: TextStyle(fontSize: 18, color: Colors.black),
             chordStyle: TextStyle(fontSize: 20, color: Colors.green),
             widgetPadding: 100,
