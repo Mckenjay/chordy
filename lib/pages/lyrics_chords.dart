@@ -1,11 +1,25 @@
 import 'package:chordy/models/song_model.dart';
+import 'package:chordy/pages/edit_song.dart';
 import 'package:chordy/services/song_service.dart';
 import 'package:custom_flutter_chord/custom_flutter_chord.dart';
 import 'package:flutter/material.dart';
 
-class LyricsChordsPage extends StatelessWidget {
+class LyricsChordsPage extends StatefulWidget {
   final SongModel songData;
   const LyricsChordsPage({super.key, required this.songData});
+
+  @override
+  State<LyricsChordsPage> createState() => _LyricsChordsPageState();
+}
+
+class _LyricsChordsPageState extends State<LyricsChordsPage> {
+  late SongModel _songData;
+
+  @override
+  initState() {
+    super.initState();
+    _songData = widget.songData;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +32,7 @@ class LyricsChordsPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(songData.title),
+        title: Text(_songData.title),
         actions: [
           PopupMenuButton(
             itemBuilder:(BuildContext context) {
@@ -27,7 +41,7 @@ class LyricsChordsPage extends StatelessWidget {
                   value: const Text('Delete'),
                   child: const Text('Delete'),
                   onTap: () async {
-                    await songService.deleteSong(songData.id.toString());
+                    await songService.deleteSong(_songData.id.toString());
 
                     if (!context.mounted) return;
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -44,7 +58,7 @@ class LyricsChordsPage extends StatelessWidget {
       body: ListView(
         children: [
           LyricsRenderer(
-            lyrics: songData.lyrics,
+            lyrics: _songData.lyrics,
             textStyle: TextStyle(fontSize: 18, color: Colors.black),
             chordStyle: TextStyle(fontSize: 20, color: Colors.green),
             widgetPadding: 100,
@@ -61,7 +75,18 @@ class LyricsChordsPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         tooltip: 'Edit',
         child: Icon(Icons.edit, color: Colors.blue),
-        onPressed: () {}
+        onPressed: () async {
+          final updatedSongData = await Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) => EditSong(songData: _songData))
+          );
+
+          if (updatedSongData != null) {
+            setState(() {
+              _songData = updatedSongData;
+            });
+          } 
+        }
       ),
     );
   }
