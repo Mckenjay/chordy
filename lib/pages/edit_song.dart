@@ -1,16 +1,17 @@
-import 'package:chordy/core/styles/styles.dart';
 import 'package:chordy/models/song_model.dart';
 import 'package:chordy/services/song_service.dart';
 import 'package:flutter/material.dart';
+import 'package:chordy/core/styles/styles.dart';
 
-class AddSong extends StatefulWidget {
-  const AddSong({super.key});
+class EditSong extends StatefulWidget {
+  final SongModel songData;
+  const EditSong({super.key, required this.songData});
 
   @override
-  State<AddSong> createState() => _AddSongState();
+  State<EditSong> createState() => _EditSongState();
 }
 
-class _AddSongState extends State<AddSong> {
+class _EditSongState extends State<EditSong> {
   final SongService songService = SongService();
 
   TextEditingController titleController = TextEditingController();
@@ -18,11 +19,19 @@ class _AddSongState extends State<AddSong> {
   TextEditingController lyricsController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-
+  
   bool isLoading = false;
 
   @override
-  dispose() {
+  initState() {
+    super.initState();
+    titleController = TextEditingController(text: widget.songData.title);
+    artistController = TextEditingController(text: widget.songData.artist);
+    lyricsController = TextEditingController(text: widget.songData.lyrics);
+  }
+
+  @override
+  void dispose() {
     titleController.dispose();
     artistController.dispose();
     lyricsController.dispose();
@@ -37,7 +46,7 @@ class _AddSongState extends State<AddSong> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Add Song'),
+        title: Text('Edit Song'),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -97,51 +106,45 @@ class _AddSongState extends State<AddSong> {
                   },
                 ),
                 SizedBox(height: 10),
-
-                !isLoading 
-                  ? Center(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        minimumSize: WidgetStateProperty.all(Size(200, 50)),
-                        backgroundColor: WidgetStatePropertyAll(Colors.blue)
-                      ),
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          setState(() {
-                            isLoading = true;
-                          });
-
-                          await songService.addSong(
-                            SongModel(
-                              title: titleController.text,
-                              artist: artistController.text,
-                              lyrics: lyricsController.text
-                            )
-                          );
-
-                          if (!context.mounted) return;
-
-                          setState(() {
-                            isLoading = false;
-                          });
-                          
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Song added successfully!')),
-                          );
-
-                          Navigator.pop(context);
-                        }
-                      },
-                      child: Text('Submit', style: textStyle,)
-                    ),
-                  )
-                  : Center(
-                    child: CircularProgressIndicator(),
-                  )
               ],
             ),
           )
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Update',
+        onPressed: !isLoading ? () async {
+          if (_formKey.currentState!.validate()) {
+            setState(() {
+              isLoading = true;
+            });
+
+            SongModel song = SongModel(
+              id: widget.songData.id,
+              title: titleController.text, 
+              artist: artistController.text, 
+              lyrics: lyricsController.text
+            );
+
+            await songService.updateSong(song);
+
+            if (!context.mounted) return;
+
+            setState(() {
+              isLoading = false;
+            });
+            
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Song updated successfully!')),
+            );
+
+            Navigator.pop(context, song);
+          }
+        } : null,
+        child:
+          !isLoading 
+            ? Icon(Icons.update)
+            : CircularProgressIndicator(),
       ),
     );
   }
