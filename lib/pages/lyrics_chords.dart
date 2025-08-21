@@ -14,6 +14,8 @@ class LyricsChordsPage extends StatefulWidget {
 
 class _LyricsChordsPageState extends State<LyricsChordsPage> {
   late SongModel _songData;
+  int transposeIncrement = 0;
+  int scrollSpeed = 0;
 
   @override
   initState() {
@@ -63,13 +65,13 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
             chordStyle: TextStyle(fontSize: 20, color: Colors.green),
             widgetPadding: 100,
             onTapChord: (String chord) {},
-            transposeIncrement: 0,
-            scrollSpeed: 0,
+            transposeIncrement: transposeIncrement,
+            scrollSpeed: scrollSpeed,
             showChord: true,
             showText: true,
             fixedChordSpace: 15,
             underlineChordSyllables: false,
-          ),
+          ),      
         ],
       ),
       floatingActionButton: FloatingActionButton(
