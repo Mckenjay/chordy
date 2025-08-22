@@ -1,4 +1,4 @@
-package com.example.flutter_chords
+package com.mckenjay.chordy
 
 import io.flutter.embedding.android.FlutterActivity
 
