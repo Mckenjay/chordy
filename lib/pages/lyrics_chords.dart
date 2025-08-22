@@ -136,37 +136,37 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
                 Text('Transpose'),
               ],
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: scrollSpeed <= 0
-                        ? null
-                        : () {
-                        setState(() {
-                          scrollSpeed--;
-                        });
-                      }, 
-                      child: Text('-')
-                    ),
-                    SizedBox(width: 5,),
-                    Text('$scrollSpeed'),
-                    SizedBox(width: 5,),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          scrollSpeed++;
-                        });
-                      }, 
-                      child: Text('+')
-                    ),
-                  ],
-                ),
-                Text('Auto Scroll'),
-              ],
-            ),
+            // Column(
+            //   mainAxisSize: MainAxisSize.min,
+            //   children: [
+            //     Row(
+            //       children: [
+            //         ElevatedButton(
+            //           onPressed: scrollSpeed <= 0
+            //             ? null
+            //             : () {
+            //             setState(() {
+            //               scrollSpeed--;
+            //             });
+            //           }, 
+            //           child: Text('-')
+            //         ),
+            //         SizedBox(width: 5,),
+            //         Text('$scrollSpeed'),
+            //         SizedBox(width: 5,),
+            //         ElevatedButton(
+            //           onPressed: () {
+            //             setState(() {
+            //               scrollSpeed++;
+            //             });
+            //           }, 
+            //           child: Text('+')
+            //         ),
+            //       ],
+            //     ),
+            //     Text('Auto Scroll'),
+            //   ],
+            // ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
