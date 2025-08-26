@@ -1,6 +1,6 @@
 {
-    "name": "flutter_chords",
-    "short_name": "flutter_chords",
+    "name": "chordy",
+    "short_name": "chordy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

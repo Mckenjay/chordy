@@ -62,13 +62,13 @@ class _HomePageState extends State<HomePage> {
           );
         }
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Add Song',
-        child: Icon(Icons.add_outlined, color: Colors.blue),
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AddSong()));
-        }
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   tooltip: 'Add Song',
+      //   child: Icon(Icons.add_outlined, color: Colors.blue),
+      //   onPressed: () {
+      //     Navigator.push(context, MaterialPageRoute(builder: (context) => AddSong()));
+      //   }
+      // ),
     );
   }
 }

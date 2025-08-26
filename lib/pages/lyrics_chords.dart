@@ -85,22 +85,22 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Edit',
-        child: Icon(Icons.edit, color: Colors.blue),
-        onPressed: () async {
-          final updatedSongData = await Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (context) => EditSong(songData: _songData))
-          );
+      // floatingActionButton: FloatingActionButton(
+      //   tooltip: 'Edit',
+      //   child: Icon(Icons.edit, color: Colors.blue),
+      //   onPressed: () async {
+      //     final updatedSongData = await Navigator.push(
+      //       context, 
+      //       MaterialPageRoute(builder: (context) => EditSong(songData: _songData))
+      //     );
 
-          if (updatedSongData != null) {
-            setState(() {
-              _songData = updatedSongData;
-            });
-          } 
-        }
-      ),
+      //     if (updatedSongData != null) {
+      //       setState(() {
+      //         _songData = updatedSongData;
+      //       });
+      //     } 
+      //   }
+      // ),
       bottomNavigationBar: Container(
         color: Colors.black26,
         padding: EdgeInsets.all(16),
