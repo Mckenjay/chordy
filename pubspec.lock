@@ -94,8 +94,8 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "03586212550942b8075fb948dff2ec0b34ccb653"
-      url: "https://github.com/Mckenjay/custom_flutter_chord"
+      resolved-ref: "5b8118a639fcf86b3d8cfde196bbfbca46f11cad"
+      url: "https://github.com/Mckenjay/custom_flutter_chord.git"
     source: git
     version: "0.2.3"
   fake_async:
