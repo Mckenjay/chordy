@@ -36,7 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core: ^4.0.0
   flutter_dotenv: ^6.0.0
-  custom_flutter_chord: ^0.2.2
+  custom_flutter_chord: 
+    git:
+      url: https://github.com/Mckenjay/custom_flutter_chord.git
+      ref: main
   google_fonts: ^6.3.0
   cloud_firestore: ^6.0.0
 
