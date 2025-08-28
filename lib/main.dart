@@ -1,8 +1,8 @@
+import 'package:chordy/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:chordy/firebase_options.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:chordy/pages/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
@@ -23,10 +23,11 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Chordy',
       theme: ThemeData(
+        useMaterial3: true,
         textTheme: GoogleFonts.robotoTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 71, 58, 183)),
       ),
-      home: const HomePage()
+      home: const MainPage()
     );
   }
 }

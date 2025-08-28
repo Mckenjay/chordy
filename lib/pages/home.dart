@@ -1,8 +1,8 @@
 import 'package:chordy/models/song_model.dart';
+import 'package:chordy/pages/abouts.dart';
 import 'package:chordy/services/song_service.dart';
 import 'package:flutter/material.dart';
 import 'package:chordy/pages/lyrics_chords.dart';
-import 'package:chordy/appbar_actions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +20,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          const AppBarActions(),
+          IconButton(
+            tooltip: 'Search',
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            tooltip: 'Account',
+            icon: const Icon(Icons.account_circle_outlined),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const Abouts())),
+          ),
         ],
         title: const Text("Chordy"),
       ),
@@ -52,9 +61,7 @@ class _HomePageState extends State<HomePage> {
                   hoverColor: Colors.grey[300],
                   shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
                   trailing: Icon(Icons.chevron_right, color: Colors.blue,),
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => LyricsChordsPage(songData: song,)));
-                  },
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => LyricsChordsPage(songData: song))),
                 ),
               );
             },
