@@ -1,5 +1,4 @@
 import 'package:chordy/models/song_model.dart';
-import 'package:chordy/pages/add_song.dart';
 import 'package:chordy/services/song_service.dart';
 import 'package:flutter/material.dart';
 import 'package:chordy/pages/lyrics_chords.dart';
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          AppBarActions(),
+          const AppBarActions(),
         ],
         title: const Text("Chordy"),
       ),
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               SongModel song = snapshot.data![index];
               return Card(
                 child: ListTile(
-                  leading: Icon(Icons.lyrics_outlined, color: Colors.black),
+                  leading: const Icon(Icons.lyrics_outlined, color: Colors.black),
                   title: Text(song.title, style: TextStyle(fontWeight: FontWeight.bold),),
                   subtitle: Text(song.artist),
                   hoverColor: Colors.grey[300],
@@ -62,13 +61,6 @@ class _HomePageState extends State<HomePage> {
           );
         }
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   tooltip: 'Add Song',
-      //   child: Icon(Icons.add_outlined, color: Colors.blue),
-      //   onPressed: () {
-      //     Navigator.push(context, MaterialPageRoute(builder: (context) => AddSong()));
-      //   }
-      // ),
     );
   }
 }

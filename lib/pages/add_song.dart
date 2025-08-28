@@ -34,21 +34,21 @@ class _AddSongState extends State<AddSong> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Add Song'),
+        title: const Text('Add Song'),
       ),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Title', style: textStyle),
-                SizedBox(height: 6),
+                const Text('Title', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: titleController,
                   decoration: inputDecoration,
@@ -59,9 +59,9 @@ class _AddSongState extends State<AddSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
-                Text('Artist', style: textStyle),
-                SizedBox(height: 6),
+                const SizedBox(height: 10),
+                const Text('Artist', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: artistController,
                   decoration: inputDecoration,
@@ -72,14 +72,14 @@ class _AddSongState extends State<AddSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
-                Text('Lyrics & Chords', style: textStyle),
-                SizedBox(height: 6),
+                const SizedBox(height: 10),
+                const Text('Lyrics & Chords', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: lyricsController,
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  minLines: 10,
+                  minLines: 20,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -96,14 +96,14 @@ class _AddSongState extends State<AddSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 !isLoading 
                   ? Center(
                     child: ElevatedButton(
                       style: ButtonStyle(
                         minimumSize: WidgetStateProperty.all(Size(200, 50)),
-                        backgroundColor: WidgetStatePropertyAll(Colors.blue)
+                        backgroundColor: const WidgetStatePropertyAll(Colors.blue)
                       ),
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
@@ -126,17 +126,17 @@ class _AddSongState extends State<AddSong> {
                           });
                           
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Song added successfully!')),
+                            SnackBar(content: const Text('Song added successfully!')),
                           );
 
                           Navigator.pop(context);
                         }
                       },
-                      child: Text('Submit', style: textStyle,)
+                      child: const Text('Submit', style: textStyle,)
                     ),
                   )
                   : Center(
-                    child: CircularProgressIndicator(),
+                    child: const CircularProgressIndicator(),
                   )
               ],
             ),

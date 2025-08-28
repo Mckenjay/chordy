@@ -43,21 +43,21 @@ class _EditSongState extends State<EditSong> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Edit Song'),
+        title: const Text('Edit Song'),
       ),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Title', style: textStyle),
-                SizedBox(height: 6),
+                const Text('Title', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: titleController,
                   decoration: inputDecoration,
@@ -68,9 +68,9 @@ class _EditSongState extends State<EditSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
-                Text('Artist', style: textStyle),
-                SizedBox(height: 6),
+                const SizedBox(height: 10),
+                const Text('Artist', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: artistController,
                   decoration: inputDecoration,
@@ -81,14 +81,14 @@ class _EditSongState extends State<EditSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
-                Text('Lyrics & Chords', style: textStyle),
-                SizedBox(height: 6),
+                const SizedBox(height: 10),
+                const Text('Lyrics & Chords', style: textStyle),
+                const SizedBox(height: 6),
                 TextFormField(
                   controller: lyricsController,
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
-                  minLines: 10,
+                  minLines: 20,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -105,7 +105,7 @@ class _EditSongState extends State<EditSong> {
                     return null;
                   },
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
               ],
             ),
           )
@@ -135,7 +135,7 @@ class _EditSongState extends State<EditSong> {
             });
             
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Song updated successfully!')),
+              SnackBar(content: const Text('Song updated successfully!')),
             );
 
             Navigator.pop(context, song);
@@ -143,8 +143,8 @@ class _EditSongState extends State<EditSong> {
         } : null,
         child:
           !isLoading 
-            ? Icon(Icons.update)
-            : CircularProgressIndicator(),
+            ? const Icon(Icons.update)
+            : const CircularProgressIndicator(),
       ),
     );
   }

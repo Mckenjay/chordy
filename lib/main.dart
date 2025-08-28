@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
         textTheme: GoogleFonts.robotoTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 71, 58, 183)),
       ),
-      home: HomePage()
+      home: const HomePage()
     );
   }
 }

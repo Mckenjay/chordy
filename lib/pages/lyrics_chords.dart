@@ -32,7 +32,7 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -50,7 +50,7 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
 
                     if (!context.mounted) return;
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Song deleted successfully!')),
+                      SnackBar(content: const Text('Song deleted successfully!')),
                     );
                     Navigator.pop(context);
                   },
@@ -87,7 +87,7 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Edit',
-        child: Icon(Icons.edit, color: Colors.blue),
+        child: const Icon(Icons.edit, color: Colors.blue),
         onPressed: () async {
           final updatedSongData = await Navigator.push(
             context, 
@@ -118,22 +118,22 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
                           transposeIncrement--;
                         });
                       }, 
-                      child: Text('-')
+                      child: const Text('-')
                     ),
-                    SizedBox(width: 5,),
+                    const SizedBox(width: 5,),
                     Text('$transposeIncrement'),
-                    SizedBox(width: 5,),
+                    const SizedBox(width: 5,),
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
                           transposeIncrement++;
                         });
                       }, 
-                      child: Text('+')
+                      child: const Text('+')
                     ),
                   ],
                 ),
-                Text('Transpose'),
+                const Text('Transpose'),
               ],
             ),
             // Column(
@@ -185,10 +185,10 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
                         });
                       }
                     ),
-                    SizedBox(width: 5,),
+                    const SizedBox(width: 5,),
                   ],
                 ),
-                Text('Show Chord'),
+                const Text('Show Chord'),
               ],
             ),
             Column(
@@ -209,10 +209,10 @@ class _LyricsChordsPageState extends State<LyricsChordsPage> {
                         });
                       }
                     ),
-                    SizedBox(width: 5,),
+                    const SizedBox(width: 5,),
                   ],
                 ),
-                Text('Show Text'),
+                const Text('Show Text'),
               ],
             ),
           ],
