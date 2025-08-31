@@ -64,7 +64,7 @@ class _SearchPageState extends State<SearchPage> {
         actions: [
           IconButton(
             onPressed: () => setState(() { isSong = !isSong; }),
-            icon: isSong ? Icon(Icons.lyrics_outlined) : Icon(Icons.folder_outlined),
+            icon: isSong ? const Icon(Icons.lyrics_outlined) : const Icon(Icons.folder_outlined),
           ),
           SizedBox(width: 8,),
         ],
