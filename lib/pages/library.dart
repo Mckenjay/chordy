@@ -1,4 +1,4 @@
-import 'package:chordy/pages/abouts.dart';
+import 'package:chordy/pages/actions.dart';
 import 'package:flutter/material.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -14,13 +14,7 @@ class _LibraryPageState extends State<LibraryPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Library'),
-        actions: [
-          IconButton(
-            tooltip: 'Account',
-            icon: const Icon(Icons.account_circle_outlined),
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const Abouts())),
-          ),
-        ],
+        actions: const [AppBarActions()],
       ),
       body: const Center(child: Text('Library'),),
       floatingActionButton: FloatingActionButton(
