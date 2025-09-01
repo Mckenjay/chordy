@@ -1,4 +1,4 @@
-import 'package:chordy/pages/actions.dart';
+import 'package:chordy/pages/appbar_actions.dart';
 import 'package:flutter/material.dart';
 
 class LibraryPage extends StatefulWidget {
