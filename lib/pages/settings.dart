@@ -1,4 +1,4 @@
-import 'package:chordy/pages/abouts.dart';
+import 'package:chordy/pages/settings/abouts.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatelessWidget {
