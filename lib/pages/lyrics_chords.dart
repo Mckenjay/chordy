@@ -1,6 +1,6 @@
 import 'package:chordy/models/song_model.dart';
 import 'package:chordy/pages/edit_song.dart';
-import 'package:chordy/services/song_service.dart';
+import 'package:chordy/services/song.dart';
 import 'package:custom_flutter_chord/custom_flutter_chord.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

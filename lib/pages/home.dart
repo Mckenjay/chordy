@@ -1,6 +1,6 @@
 import 'package:chordy/models/song_model.dart';
 import 'package:chordy/pages/appbar_actions.dart';
-import 'package:chordy/services/song_service.dart';
+import 'package:chordy/services/song.dart';
 import 'package:flutter/material.dart';
 import 'package:chordy/pages/lyrics_chords.dart';
 
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   
   final SongService songService = SongService();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

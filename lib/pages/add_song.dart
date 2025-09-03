@@ -1,6 +1,6 @@
 import 'package:chordy/core/styles/styles.dart';
 import 'package:chordy/models/song_model.dart';
-import 'package:chordy/services/song_service.dart';
+import 'package:chordy/services/song.dart';
 import 'package:flutter/material.dart';
 
 class AddSong extends StatefulWidget {
