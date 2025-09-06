@@ -1,8 +1,17 @@
 import 'package:chordy/pages/settings.dart';
+import 'package:chordy/services/auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class AppBarActions extends StatelessWidget {
+class AppBarActions extends StatefulWidget {
   const AppBarActions({super.key});
+
+  @override
+  State<AppBarActions> createState() => _AppBarActionsState();
+}
+
+class _AppBarActionsState extends State<AppBarActions> {
+  final AuthService auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +43,30 @@ class AppBarActions extends StatelessWidget {
                       ),
                     ),
                     Card(
-                      child: ListTile(
-                        minTileHeight: 60,
-                        leading: const Icon(Icons.login_outlined),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        title: const Text("Login"),
-                        onTap: () {},
-                      ),
+                      child: kIsWeb
+                        ? FutureBuilder<Widget?>(
+                            future: auth.platformAwareSignIn(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState == ConnectionState.waiting) {
+                                return const CircularProgressIndicator();
+                              }
+                              if (snapshot.hasError) {
+                                return Text("Error: ${snapshot.error}");
+                              }
+                              return snapshot.data ?? const SizedBox.shrink();
+                            },
+                          )
+                        : ListTile(
+                            minTileHeight: 60,
+                            leading: const Icon(Icons.login_outlined),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            title: const Text("Login (Mobile)"),
+                            onTap: () {
+                              auth.platformAwareSignIn(); // can be same or different
+                            },
+                          ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 3),
