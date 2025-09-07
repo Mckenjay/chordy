@@ -2,6 +2,7 @@ import 'package:chordy/pages/settings.dart';
 import 'package:chordy/services/auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_web/web_only.dart' as web;
 
 class AppBarActions extends StatefulWidget {
   const AppBarActions({super.key});
@@ -44,18 +45,7 @@ class _AppBarActionsState extends State<AppBarActions> {
                     ),
                     Card(
                       child: kIsWeb
-                        ? FutureBuilder<Widget?>(
-                            future: auth.platformAwareSignIn(),
-                            builder: (context, snapshot) {
-                              if (snapshot.connectionState == ConnectionState.waiting) {
-                                return const CircularProgressIndicator();
-                              }
-                              if (snapshot.hasError) {
-                                return Text("Error: ${snapshot.error}");
-                              }
-                              return snapshot.data ?? const SizedBox.shrink();
-                            },
-                          )
+                        ? web.renderButton()
                         : ListTile(
                             minTileHeight: 60,
                             leading: const Icon(Icons.login_outlined),
@@ -64,7 +54,7 @@ class _AppBarActionsState extends State<AppBarActions> {
                             ),
                             title: const Text("Login (Mobile)"),
                             onTap: () {
-                              auth.platformAwareSignIn(); // can be same or different
+                              // auth.platformAwareSignIn(); // can be same or different
                             },
                           ),
                     ),
