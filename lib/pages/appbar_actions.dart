@@ -2,7 +2,11 @@ import 'package:chordy/pages/settings.dart';
 import 'package:chordy/services/auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in_web/web_only.dart' as web;
+
+// Conditional import: chooses the web version only when compiling for web.
+import 'package:chordy/services/google_button_stub.dart'
+    if (dart.library.html) 'package:chordy/services/google_button_web.dart'
+    as web;
 
 class AppBarActions extends StatefulWidget {
   const AppBarActions({super.key});
@@ -45,7 +49,7 @@ class _AppBarActionsState extends State<AppBarActions> {
                     ),
                     Card(
                       child: kIsWeb
-                        ? web.renderButton()
+                        ? web.renderGoogleButton()
                         : ListTile(
                             minTileHeight: 60,
                             leading: const Icon(Icons.login_outlined),
