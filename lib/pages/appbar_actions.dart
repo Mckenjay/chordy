@@ -27,6 +27,7 @@ class _AppBarActionsState extends State<AppBarActions> {
           icon: const Icon(Icons.account_circle_outlined),
           onPressed: () => showDialog(context: context, 
             builder: (_) => Dialog(
+              insetPadding: EdgeInsets.symmetric(horizontal: 10.0),
               alignment: Alignment(0.0, -0.8),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               child: Padding(

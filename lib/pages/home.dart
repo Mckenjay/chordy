@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (context, index) {
               SongModel song = snapshot.data![index];
               return ListTile(
+                contentPadding: const EdgeInsetsDirectional.only(start: 16, end: 2),
                 leading: Container(
                   width: 48,
                   height: 48,
